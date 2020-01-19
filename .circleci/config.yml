@@ -42,7 +42,7 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: Test and Lint
-          command: yarn lint
+          command: yarn lint && yarn test
   deploy:
     docker:
       - image: google/cloud-sdk
