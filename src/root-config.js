@@ -13,4 +13,10 @@ registerApplication(
   isActive.clients
 );
 
+registerApplication(
+  "@polyglot-mf/account-settings",
+  () => System.import("@polyglot-mf/account-settings"),
+  isActive.accountSettings
+);
+
 start();

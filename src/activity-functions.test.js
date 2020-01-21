@@ -23,4 +23,15 @@ describe("activity functions", () => {
     location.pathname = "/clients";
     expect(isActive.clients(location)).toBe(true);
   });
+
+  it("verifies that the clients application is active for correct routes", () => {
+    location.pathname = "/";
+    expect(isActive.accountSettings(location)).toBe(false);
+
+    location.pathname = "/settings";
+    expect(isActive.accountSettings(location)).toBe(true);
+
+    location.pathname = "/clients";
+    expect(isActive.accountSettings(location)).toBe(false);
+  });
 });

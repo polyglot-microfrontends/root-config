@@ -6,3 +6,7 @@ export function navbar(location) {
 export function clients(location) {
   return location.pathname.startsWith("/clients");
 }
+
+export function accountSettings(location) {
+  return location.pathname.startsWith("/settings");
+}
