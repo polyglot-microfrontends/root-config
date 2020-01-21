@@ -7,4 +7,10 @@ registerApplication(
   isActive.navbar
 );
 
+registerApplication(
+  "@polyglot-mf/clients",
+  () => System.import("@polyglot-mf/clients"),
+  isActive.clients
+);
+
 start();
