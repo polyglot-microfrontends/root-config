@@ -1,5 +1,6 @@
 # root-config
-The root config for polyglot microfrontends
+
+[![CircleCI](https://circleci.com/gh/polyglot-microfrontends/root-config.svg?style=svg)](https://circleci.com/gh/polyglot-microfrontends/root-config)
 
 ## What is this?
 
