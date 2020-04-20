@@ -1,23 +1,22 @@
 import { registerApplication, start } from "single-spa";
-import * as isActive from "./activity-functions";
 
-registerApplication(
-  "@polyglot-mf/navbar",
-  () => System.import("@polyglot-mf/navbar"),
-  isActive.navbar
-);
+registerApplication({
+  name: "@polyglot-mf/navbar",
+  app: () => System.import("@polyglot-mf/navbar"),
+  activeWhen: "/",
+});
 
-registerApplication(
-  "@polyglot-mf/clients",
-  () => System.import("@polyglot-mf/clients"),
-  isActive.clients
-);
+registerApplication({
+  name: "@polyglot-mf/clients",
+  app: () => System.import("@polyglot-mf/clients"),
+  activeWhen: "/clients",
+});
 
-registerApplication(
-  "@polyglot-mf/account-settings",
-  () => loadWithoutAmd("@polyglot-mf/account-settings"),
-  isActive.accountSettings
-);
+registerApplication({
+  name: "@polyglot-mf/account-settings",
+  app: () => loadWithoutAmd("@polyglot-mf/account-settings"),
+  activeWhen: "/settings",
+});
 
 start();
 
@@ -27,7 +26,7 @@ function loadWithoutAmd(name) {
   return Promise.resolve().then(() => {
     let globalDefine = window.define;
     delete window.define;
-    return System.import(name).then(module => {
+    return System.import(name).then((module) => {
       window.define = globalDefine;
       return module;
     });
